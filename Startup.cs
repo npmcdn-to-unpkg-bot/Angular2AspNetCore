@@ -23,6 +23,7 @@ namespace Angular2
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            // Add JSON Options to camel case C# class names to javascipt names Id => id
             services.AddMvc().AddJsonOptions(options =>
                   {
                       options.SerializerSettings.ContractResolver =
@@ -37,9 +38,9 @@ namespace Angular2
             app.UseStaticFiles();
 
             app.UseMvc(config =>
-            {      
-                config.MapRoute("defaultApiAction", "api/{controller}/{action}/{id?}");
-                config.MapRoute("defaultApi", "api/{controller}/{id?}");
+            {   
+                // set all undefined routes to return the Home/Index so Angular can take over
+                // The API has the route defined in the controller class
                 config.MapRoute("spa-fallback", "{*anything}", new { controller = "Home", action = "Index" });               
             });
         }

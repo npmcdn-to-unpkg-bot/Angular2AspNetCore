@@ -4,6 +4,7 @@ import { HTTP_PROVIDERS }    from 'angular2/http';
 
 import { Hero } from '../models/hero';
 import { HeroService } from '../services/hero.service';
+import { RxError } from '../models/rxError';
 
 @Component({
     selector: 'my-dashboard',
@@ -12,6 +13,7 @@ import { HeroService } from '../services/hero.service';
 })
 export class DashboardComponent implements OnInit {
 
+    errorMessage: RxError;
     heroes: Hero[] = [];
 
     constructor(
@@ -22,8 +24,10 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this._heroService.getHeroes()
             .subscribe(
-            heroes => this.heroes = heroes.slice(1,5),
-            error => this.errorMessage = <any>error);
+            heroes => this.heroes = heroes.slice(1, 5),
+            function(error) {
+                this.errorMessage = <any>error;
+            });
     }
 
     gotoDetail(hero: Hero) {

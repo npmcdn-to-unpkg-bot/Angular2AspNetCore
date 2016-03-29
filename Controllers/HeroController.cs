@@ -10,6 +10,7 @@ namespace Angular2.Controllers
     [Route("api/[controller]")]
     public class HeroController : Controller
     {
+        // using in memory list for now, would normally get from database or nosql store
         List<Hero> HEROES = new List<Hero>(){
             new Hero(){Id = 11, Name = "Mr. Nice"},
             new Hero(){Id = 12, Name = "Narco"},
@@ -23,12 +24,14 @@ namespace Angular2.Controllers
             new Hero(){Id = 20, Name = "Tornado"}
         };
     
+        // Return the full list of Heroes
         [HttpGet]
         public IActionResult Get()
         {
             return new ObjectResult(HEROES);
         }
         
+        // Return on the Hero with the Matching Id
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

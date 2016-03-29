@@ -3,6 +3,7 @@ import { RouteParams, ROUTER_DIRECTIVES, Router } from 'angular2/router';
 
 import { Hero } from '../models/hero';
 import { HeroService } from '../services/hero.service';
+import { RxError } from '../models/rxError';
 
 @Component({
     selector: 'my-hero-detail',
@@ -12,6 +13,8 @@ import { HeroService } from '../services/hero.service';
     directives: [ROUTER_DIRECTIVES]
 })
 export class HeroDetailComponent implements OnInit {
+
+    errorMessage: RxError;
     hero: Hero;
 
     constructor(
