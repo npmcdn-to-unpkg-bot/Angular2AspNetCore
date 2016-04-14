@@ -1,0 +1,27 @@
+{
+  "name": "angular2",
+  "version": "1.0.0",
+  "description": "This project is deisgned to be a starting point to working with the Angular 2 (Beta 12 as of writing) Tour of Heroes demo inside an Asp.net core RC1 app.",
+  "main": "index.js",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.15",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "^0.6.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradriske/Angular2AspNetCore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradriske/Angular2AspNetCore/issues"
+  },
+  "homepage": "https://github.com/bradriske/Angular2AspNetCore#readme"
+}

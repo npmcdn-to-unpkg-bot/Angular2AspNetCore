@@ -18,7 +18,7 @@ import { Observable }     from 'rxjs/Observable';
 export class HeroesComponent implements OnInit {
 
     errorMessage: RxError;
-    heroes: Observable<Hero>;
+    heroes: Observable<Hero[]>;
     selectedHero: Hero;
 
     constructor(
