@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { HTTP_PROVIDERS }    from 'angular2/http';
+import { AsyncPipe } from 'angular2/common';
 
 import { Hero } from '../models/hero';
 import { HeroService } from '../services/hero.service';
@@ -9,12 +10,13 @@ import { RxError } from '../models/rxError';
 @Component({
     selector: 'my-dashboard',
     templateUrl: 'app/html/dashboard.component.html',
-    styleUrls: ['app/css/dashboard.component.css']
+    styleUrls: ['app/css/dashboard.component.css'],
+    pipes: [AsyncPipe]
 })
 export class DashboardComponent implements OnInit {
 
     errorMessage: RxError;
-    heroes: Hero[] = [];
+    heroes: any;
 
     constructor(
         private _router: Router,
@@ -22,12 +24,7 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._heroService.getHeroes()
-            .subscribe(
-            heroes => this.heroes = heroes.slice(1, 5),
-            function(error) {
-                this.errorMessage = <any>error;
-            });
+        this.heroes = this._heroService.getHeroes();
     }
 
     gotoDetail(hero: Hero) {
