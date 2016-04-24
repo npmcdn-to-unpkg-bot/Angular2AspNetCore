@@ -1,5 +1,3 @@
-using System;
-
 namespace Angular2.Models
 {
     public class Hero
